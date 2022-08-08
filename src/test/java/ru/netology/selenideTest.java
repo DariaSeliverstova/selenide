@@ -2,25 +2,31 @@ package ru.netology;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static javax.print.attribute.standard.MediaSizeName.A;
 
 
 public class selenideTest {
+
 
     @Test
     void shouldAll() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         $x("//input[@placeholder='Город']").setValue("Махачкала");
-        $x("//input [@placeholder='Дата встречи']").click();
+        $x("//input [@placeholder='Дата встречи']").doubleClick();
+        $x("//input [@placeholder='Дата встречи']").sendKeys(" ");
         $x("//input [@placeholder='Дата встречи']").setValue("18.08.2022");
         $x("//input[@name='name']").setValue("Дарья Се-ливерстова");
         $x("//input[@maxlength='16']").setValue("+74951384061");

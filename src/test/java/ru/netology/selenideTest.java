@@ -15,13 +15,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class selenideTest {
 
-    private WebDriver driver;
-
-    @BeforeAll
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @Test
     void shouldAll() {
         Configuration.holdBrowserOpen = true;

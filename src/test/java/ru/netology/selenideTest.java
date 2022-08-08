@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class selenideTest {
     @Test
-    void shouldAll(){
+    void shouldAll() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         $x("//input[@placeholder='Город']").setValue("Махачкала");
@@ -26,8 +26,6 @@ public class selenideTest {
                 should(visible, Duration.ofSeconds(15));
 
     }
-
-
 
 
 }

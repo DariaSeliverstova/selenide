@@ -2,7 +2,10 @@ package ru.netology;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
@@ -11,6 +14,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class selenideTest {
+
+    private WebDriver driver;
+
+    @BeforeAll
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
+
     @Test
     void shouldAll() {
         Configuration.holdBrowserOpen = true;

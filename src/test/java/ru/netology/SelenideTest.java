@@ -29,18 +29,15 @@ public class SelenideTest {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         $x("//input[@placeholder='Город']").setValue("Махачкала");
-        //$x("//input [@placeholder='Дата встречи']").click();
         $x("//input [@placeholder='Дата встречи']").doubleClick();
-        $x("//input [@placeholder='Дата встречи']").sendKeys(" ");
+        $x("//input [@placeholder='Дата встречи']").sendKeys(Keys.DELETE);
         $x("//input [@placeholder='Дата встречи']").setValue(planningDate);
         $x("//input[@name='name']").setValue("Дарья Се-ливерстова");
-        $x("//input[@maxlength='16']").setValue("+74951384061");
+        $x("//input[@name='phone']").setValue("+74951384061");
         $x("//span[@class='checkbox__box']").click();
-        $x("//*[text()='Запланировать']").click();
-        $x("//div[@data-test-id='success-notification']").
+        $x("//*[text()='Забронировать']").click();
+        $x("//div[@class='notification notification_visible notification_has-closer notification_stick-to_right notification_theme_alfa-on-white']").
                 should(visible, Duration.ofSeconds(15));
-         //$x("//div[@class='notification__content']")
-                //.filter(visible).first()
         $(".notification__content")
                 .shouldHave(Condition.text("Встреча успешно забронирована на " + planningDate), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
@@ -49,4 +46,3 @@ public class SelenideTest {
 
 
 }
-
